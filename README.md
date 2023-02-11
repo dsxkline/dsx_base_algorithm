@@ -22,7 +22,7 @@ def converkline_to(self,cycle:CYCLE):
         Returns:
             list: 转换后的k线
         """
-        klines = self.klines.copy()
+        klines = self.klines
         ...
         # k线滚动缓存
         last_klines = []

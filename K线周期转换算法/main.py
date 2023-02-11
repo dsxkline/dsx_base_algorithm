@@ -34,7 +34,7 @@ class DsxBaseConverKlines:
         Returns:
             list: 转换后的k线
         """
-        klines = self.klines.copy()
+        klines = self.klines
         # 日周月年K线的分组标识提取方法
         get_date_group = self.get_date_week_group
         if cycle==CYCLE.WEEK :  get_date_group = self.get_date_week_group
