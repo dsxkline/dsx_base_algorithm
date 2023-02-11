@@ -23,17 +23,7 @@ def converkline_to(self,cycle:CYCLE):
             list: 转换后的k线
         """
         klines = self.klines.copy()
-        # 日周月年K线的分组标识提取方法
-        get_date_group = self.get_date_week_group
-        if cycle==CYCLE.WEEK :  get_date_group = self.get_date_week_group
-        if cycle==CYCLE.MONTH :  get_date_group = self.get_date_month_group
-        if cycle==CYCLE.YEAR :  get_date_group = self.get_date_year_group
-        # 分钟线分组周期
-        m = None
-        if cycle==CYCLE.M5 : m = 5
-        if cycle==CYCLE.M15 : m = 15
-        if cycle==CYCLE.M30 : m = 30
-        if cycle==CYCLE.M60 : m = 60
+        ...
         # k线滚动缓存
         last_klines = []
         # 分组标识
@@ -43,6 +33,7 @@ def converkline_to(self,cycle:CYCLE):
         for item in klines:
             # 分组提取
             if not m: group_name = get_date_group(item[0])
+            # 分钟线提取
             else: group_name = self.get_date_min_group(item[0],m)
             if last_group == None: last_group = group_name
             # 分组归类
