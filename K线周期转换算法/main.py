@@ -65,9 +65,9 @@ class DsxBaseConverKlines:
             if group_name!=last_group or item == klines[klines.__len__()-1]:
                 # 分组不同表明已滚动到下个分组，这时候需要合并即可得到分组的K线数据
                 group_kline = self.merge_group_klines([last_klines])
-                # 计算完成清空箱子装新数据进去
+                # 传递新数据
                 last_klines = item
-                # 当前分组开启归类循环
+                # 传递新分组
                 last_group = group_name
                 # 数据保存
                 new_klines.append(group_kline)
@@ -241,4 +241,4 @@ if __name__=="__main__":
         # 转成60分钟数据
         min60_klines = DsxBaseConverKlines(klines).converkline_tomin(CYCLE.M60)
 
-        print(min5_klines)
+        print(min60_klines)
