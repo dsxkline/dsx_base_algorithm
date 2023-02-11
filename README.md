@@ -6,8 +6,10 @@
 
 即通过对时间的周期提取分组，同周期K线归类为一组，再计算即可得到目标周期K线数据
 
-https://github.com/dsxkline/dsx_base_algorithm/tree/main/K%E7%BA%BF%E5%91%A8%E6%9C%9F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95
+https://github.com/dsxkline/dsx_base_algorithm/tree/main/K线周期转换算法
 ```python
+
+# 核心代码片段
 def converkline_to(self,cycle:CYCLE):
         """通过时间段分组算法转换k线周期
         通过对日期的周期提取分组，同周期K线归类为一组，再计算即可得到目标周期K线数据
