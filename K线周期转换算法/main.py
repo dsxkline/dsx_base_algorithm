@@ -23,13 +23,14 @@ class DsxBaseConverKlines:
         pass
   
     def converkline_to(self,cycle:CYCLE):
-        """通过日期归类算法转换k线周期
-        通过对日期的周期提取归类，同周期K线归类为一组，再计算即可得到周K数据
-        需要防止日期跨周，例如遇到不连续或停牌一段时间的
+        """通过时间段分组算法转换k线周期
+        通过对日期的周期提取分组，同周期K线归类为一组，再计算即可得到目标周期K线数据
+
+        日线数据 [[date,open,high,low,close,vol,amount],...]
+        分钟数据 [[datetime,open,high,low,close,vol,amount],...]
 
         Args:
-            type (str): week,month,year
-            klines (list): 日线数据 [date,open,high,low,close,vol,amount]
+            cycle (CYCLE): 周期枚举
         Returns:
             list: 转换后的k线
         """
