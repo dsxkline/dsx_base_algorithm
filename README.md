@@ -22,7 +22,6 @@ def converkline_to(self,cycle:CYCLE):
         Returns:
             list: 转换后的k线
         """
-        klines = self.klines
         ...
         # k线滚动缓存
         last_klines = []
@@ -30,26 +29,29 @@ def converkline_to(self,cycle:CYCLE):
         last_group = None
         # 保存转换结果
         new_klines = []
+        # 滚动开始
         for item in klines:
             # 分组提取
             if not m: group_name = get_date_group(item[0])
-            # 分钟线提取
             else: group_name = self.get_date_min_group(item[0],m)
             if last_group == None: last_group = group_name
-            # 分组归类
+            # 分组合并
             if group_name==last_group:
-                # 分组归类合并,分组数据合并成新的开高低收新k线
+                # 始终合并上一个周期
                 last_klines = self.merge_group_klines([last_klines]+[item])
-            # 分组滚动
-            if group_name!=last_group or item == klines[klines.__len__()-1]:
-                # 分组不同表明已滚动到下个分组，这时候需要合并即可得到分组的K线数据
-                group_kline = self.merge_group_klines([last_klines])
-                # 传递新数据
+            else:
+                # 保存上个周期
+                new_klines.append(last_klines)
+                # 传递新周期数据
                 last_klines = item
-                # 传递新分组
+                # 传递新周期分组
                 last_group = group_name
-                # 数据保存
-                new_klines.append(group_kline)
+            # 终止
+            if item == klines[-1]:
+                if group_name==last_group:
+                    # 保存新周期
+                    new_klines.append(last_klines)
+
         return new_klines
 ```
 
