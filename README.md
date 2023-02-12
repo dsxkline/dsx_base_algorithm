@@ -7,6 +7,14 @@
 即通过对时间的周期提取分组，同周期K线归类为一组，再计算即可得到目标周期K线数据
 
 https://github.com/dsxkline/dsx_base_algorithm/tree/main/K线周期转换算法
+
+### 流程图
+
+![alt K线转换周期算法流程图](https://raw.githubusercontent.com/dsxkline/dsx_base_algorithm/main/K%E7%BA%BF%E5%91%A8%E6%9C%9F%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95/K%E7%BA%BF%E5%91%A8%E6%9C%9F%E8%BD%AC%E6%8D%A2%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B%E5%9B%BE%20.png)
+
+### 核心代码
+
+
 ```python
 
 # 核心代码片段
