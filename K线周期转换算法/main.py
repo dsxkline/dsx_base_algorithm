@@ -23,7 +23,7 @@ class DsxBaseConverKlines:
         pass
   
     def converkline_to(self,cycle:CYCLE):
-        """通过时间段分组算法转换k线周期
+        """通过时间分组算法转换k线周期
         通过对日期的周期提取分组，同周期K线归类为一组，再计算即可得到目标周期K线数据
 
         日线数据 [[date,open,high,low,close,vol,amount],...]
@@ -52,25 +52,29 @@ class DsxBaseConverKlines:
         last_group = None
         # 保存转换结果
         new_klines = []
+        # 滚动开始
         for item in klines:
             # 分组提取
             if not m: group_name = get_date_group(item[0])
             else: group_name = self.get_date_min_group(item[0],m)
             if last_group == None: last_group = group_name
-            # 分组归类
+            # 分组合并
             if group_name==last_group:
-                # 分组归类合并,分组数据合并成新的开高低收新k线
+                # 始终合并上一个周期
                 last_klines = self.merge_group_klines([last_klines]+[item])
-            # 分组滚动
-            if group_name!=last_group or item == klines[klines.__len__()-1]:
-                # 分组不同表明已滚动到下个分组，这时候需要合并即可得到分组的K线数据
-                group_kline = self.merge_group_klines([last_klines])
-                # 传递新数据
+            else:
+                # 保存上个周期
+                new_klines.append(last_klines)
+                # 传递新周期数据
                 last_klines = item
-                # 传递新分组
+                # 传递新周期分组
                 last_group = group_name
-                # 数据保存
-                new_klines.append(group_kline)
+            # 终止
+            if item == klines[-1]:
+                if group_name==last_group:
+                    # 保存新周期
+                    new_klines.append(last_klines)
+
         return new_klines
     
     def get_date_week_group(self,date:str):
@@ -218,11 +222,11 @@ if __name__=="__main__":
         # 转成周线数据
         week_klines = DsxBaseConverKlines(klines).converkline_toweek()
         # 转成周线数据
-        month_klines = DsxBaseConverKlines(klines).converkline_tomonth()
-        # 转成周线数据
-        year_klines = DsxBaseConverKlines(klines).converkline_toyear()
+        # month_klines = DsxBaseConverKlines(klines).converkline_tomonth()
+        # # 转成周线数据
+        # year_klines = DsxBaseConverKlines(klines).converkline_toyear()
 
-        # print(year_klines)
+        print(week_klines)
     
     with open(os.path.dirname(os.path.abspath(__file__))+"/min.txt") as f:
         # 取原始一分钟数据
@@ -233,12 +237,12 @@ if __name__=="__main__":
             date,m,op,high,low,close,vol,amount = item.split(",")
             klines.append([date+m,float(op),float(high),float(low),float(close),float(vol),float(amount)])
         # # 转成5分钟数据
-        # min5_klines = DsxBaseConverKlines(klines).converkline_tomin(CYCLE.M5)
+        min5_klines = DsxBaseConverKlines(klines).converkline_tomin(CYCLE.M5)
         # # 转成15分钟数据
         # min15_klines = DsxBaseConverKlines(klines).converkline_tomin(CYCLE.M15)
         # # 转成30分钟数据
         # min30_klines = DsxBaseConverKlines(klines).converkline_tomin(CYCLE.M30)
         # 转成60分钟数据
-        min60_klines = DsxBaseConverKlines(klines).converkline_tomin(CYCLE.M60)
+        # min60_klines = DsxBaseConverKlines(klines).converkline_tomin(CYCLE.M60)
 
-        print(min60_klines)
+        print(min5_klines)
