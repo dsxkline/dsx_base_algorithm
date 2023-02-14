@@ -1,0 +1,7 @@
+[{
+	"ann_date" : "2006-05-09",
+	"code" : "sh600000",
+	"list_day" : "2006-05-12",
+	"per_ten_cash" : "0",
+	"per_ten_send" : "3"
+}]
