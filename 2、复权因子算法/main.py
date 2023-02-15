@@ -139,10 +139,9 @@ class KlineFactors:
             per_ten_allo = float(sharebonus['per_ten_allo']) # 每10股配股
             allo_price = float(sharebonus['allo_price']) # 配股价
             # 除权除息价=(股权登记日的收盘价-每股所分红利现金额+配股价×每股配股数)÷(1+每股送红股数+每股配股数+每股转增股数);
-            price = (close - per_cash_div/10.0 + allo_price * (per_ten_allo/10.0) ) / (1.0+(per_ten_send/10.0) + (per_ten_allo/10.0) + (per_ten_incr/10.0) )
-            # 通过上面的计算得到除权除息价，也就是计算出了除权除息日的前收价,除权登记日的除权收盘价，用除权登记日的收盘价除以除权价得到单次除权因子；
-            # 除权因子= 除权收盘价 / 除权登记日收盘价
-            right_factor = price / close
+            rm_right_close = (close - per_cash_div/10.0 + allo_price * (per_ten_allo/10.0) ) / (1.0+(per_ten_send/10.0) + (per_ten_allo/10.0) + (per_ten_incr/10.0) )
+            # 除权因子 = 除权收盘价 / 除权登记日收盘价
+            right_factor = rm_right_close / close
             # right_factor = float(("%.4f"%right_factor))
             return right_factor
     
@@ -159,11 +158,10 @@ class KlineFactors:
         if important!=None and close>0:
             per_ten_send = float(important['per_ten_send']) # 每10股送股
             per_ten_cash = float(important['per_ten_cash']) # 每10股派送现金
-            # 除权除息价=(股权登记日的收盘价-每股所分红利现金额+配股价×每股配股数)÷(1+每股送红股数+每股配股数+每股转增股数);
-            price = (close - per_ten_cash/10.0 ) / (1.0+(per_ten_send/10.0))
-            # 通过上面的计算得到除权除息价，也就是计算出了除权除息日的前收价,除权登记日的除权收盘价，用除权登记日的收盘价除以除权价得到单次除权因子；
+            # 除权收盘价=除权除息价=(股权登记日的收盘价-每股所分红利现金额+配股价×每股配股数)÷(1+每股送红股数+每股配股数+每股转增股数);
+            rm_right_close = (close - per_ten_cash/10.0 ) / (1.0+(per_ten_send/10.0))
             # 除权因子= 除权收盘价 / 除权登记日收盘价
-            right_factor = price / close
+            right_factor = rm_right_close / close
             # right_factor = float(("%.6f"%right_factor))
             return right_factor
             
