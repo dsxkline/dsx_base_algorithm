@@ -99,12 +99,9 @@ def converkline_to(self,cycle:CYCLE):
     right_factor = price / close
 ```
 
-## 3、各种指标算法
-....
 
 
-
-## 4、免费行情数据接口
+## 3、免费行情数据接口
 
 鉴于笔者能力有限，现在只支持 Python,Java,Flutter,Object-C,Js,C# ，这几个语言的开发者可以参考下。
 
