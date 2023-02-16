@@ -98,3 +98,21 @@ def converkline_to(self,cycle:CYCLE):
     # 除权因子= 除权收盘价 / 除权登记日收盘价
     right_factor = price / close
 ```
+
+## 3、各种指标算法
+....
+
+
+
+## 4、免费行情数据接口
+
+鉴于笔者能力有限，现在只支持 Python,Java,Flutter,Object-C,Js,C# ，这几个语言的开发者可以参考下。
+
+### 支持接口类型
+目前仅支持以下数据接口：
+
+ - 实时行情
+ - 分时图
+ - 五日数据
+ - 历史日K线
+ - 历史分钟K线
