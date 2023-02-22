@@ -1,2 +1,4 @@
 
-2、复权因子算法/wind资讯复权算法说明/.DS_Store
+*.DS_Store
+4、指标算法/量比|换手率|涨跌幅/datas/*
+*__pycache__
