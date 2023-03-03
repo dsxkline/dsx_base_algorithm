@@ -53,6 +53,10 @@ def get_stock_tradables(code,finddate):
         return flows[date]
 
 def convert_klines(code):
+    quotes = qqhq.get_quotes(code)
+    if quotes.__len__()<=0: return
+    quotes = quotes[0]
+    name = quotes["name"]
     datas = qqhq.get_kline_datas(code,"1999-01-01","2023-03-01")
     klines = []
     last = 0
@@ -80,7 +84,7 @@ def convert_klines(code):
 
         avg_vols.append(float(vol))
         last = float(close)
-        klines.append([date,float(op),float(high),float(low),float(close),float(vol),float(amount),round(rf,2),raf,turnrate,qr])
+        klines.append([code,name,date,float(op),float(high),float(low),float(close),float(vol),float(amount),round(rf,2),raf,turnrate,qr])
     # print(klines)
     return klines
 
@@ -91,7 +95,7 @@ stocks = pandas.read_csv(path+"/dsx_stocks.csv")
 for item in stocks.values:
     code = item[0]
     klines = convert_klines(code)
-    rs = pandas.DataFrame(klines,columns=["日期","开","高","低","收","成交量","成交额","涨跌额","涨跌幅","换手率","量比"])
+    rs = pandas.DataFrame(klines,columns=["code","name","日期","开","高","低","收","成交量","成交额","涨跌额","涨跌幅","换手率","量比"])
     rs.to_csv(path+"/datas/"+code+".csv")
     print(code)
     print(rs)
