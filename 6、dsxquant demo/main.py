@@ -2,6 +2,9 @@ import datetime
 import dsxquant
 
 dsxquant.dataser.set_debug(True)
+
+result = dsxquant.get_finance("000001",dsxquant.market.SZ).dataframe()
+print(result)
 dd = dsxquant.dataser()
 if dd.connect():
    result = dd.get_quotes("sh000001").dataframe()
