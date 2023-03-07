@@ -113,3 +113,11 @@ def converkline_to(self,cycle:CYCLE):
  - 五日数据
  - 历史日K线
  - 历史分钟K线
+
+ ## 4、递归下降算法
+
+ 运用递归下降法创建一个公式编辑器来计算KDJ指标
+
+ ### 算法流程图
+
+ <img src="https://raw.githubusercontent.com/dsxkline/dsx_base_algorithm/main/5%E3%80%81%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95/%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D%E7%AE%97%E6%B3%95.drawio.png">
