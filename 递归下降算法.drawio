@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-07T03:15:41.314Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="yp33xzbUJ3ZaS8iPIIQP" version="21.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-03-07T03:21:28.081Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" etag="Tm8mX9lYPqsOOik3crlK" version="21.0.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1822" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -106,7 +106,7 @@
         <mxCell id="W81rKzVmBqfAtY-zYO3Z-54" value="* /" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="300" y="800" width="80" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="W81rKzVmBqfAtY-zYO3Z-58" value="result = result * factor.result" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="W81rKzVmBqfAtY-zYO3Z-58" value="result = result [* /] factor.result" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="90" y="805" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="W81rKzVmBqfAtY-zYO3Z-61" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="W81rKzVmBqfAtY-zYO3Z-58" target="W81rKzVmBqfAtY-zYO3Z-7">
@@ -124,7 +124,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="W81rKzVmBqfAtY-zYO3Z-66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="W81rKzVmBqfAtY-zYO3Z-64" target="W81rKzVmBqfAtY-zYO3Z-67">
+        <mxCell id="W81rKzVmBqfAtY-zYO3Z-66" value="next token" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;shape=flexArrow;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="W81rKzVmBqfAtY-zYO3Z-64" target="W81rKzVmBqfAtY-zYO3Z-67">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="340" y="1050" as="targetPoint" />
           </mxGeometry>
@@ -154,7 +154,7 @@
         <mxCell id="W81rKzVmBqfAtY-zYO3Z-68" value="return result" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="290" y="1080" width="100" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="W81rKzVmBqfAtY-zYO3Z-71" value="result = result + term.result" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="W81rKzVmBqfAtY-zYO3Z-71" value="result = result [+ -] term.result" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="10" y="990" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="W81rKzVmBqfAtY-zYO3Z-74" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="W81rKzVmBqfAtY-zYO3Z-71" target="W81rKzVmBqfAtY-zYO3Z-6">
@@ -184,6 +184,11 @@
               <mxPoint x="760" y="310" />
               <mxPoint x="480" y="310" />
             </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W81rKzVmBqfAtY-zYO3Z-85" value="next token" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="W81rKzVmBqfAtY-zYO3Z-84">
+          <mxGeometry x="-0.3352" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
