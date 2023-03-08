@@ -2,8 +2,8 @@
   就是整理一些量化相关的基础算法，供刚入坑的朋友参考学习，主要是以学习为主，写的不对的地方还望多指导指导。
 
   交流QQ群 789599606 (量化交流)
-  
-  网站 dsxquant.com
+
+  网站 <a href="https://www.dsxquant.com/" target="_blank">dsxquant.com</a>
 
 ## 1、K线周期转换算法
 
