@@ -20,11 +20,8 @@ if __name__=="__main__":
         # 解析并返回结果
         result = parser.parse()
         print(parser.caches)  # Output: 0.6
-
         # CLOSE=30,LLV(10,9)=90,HHV(20,9)=2.22,LLV(10,9)=90
         # RSV = (30-90)/(2.22-90) * 100 = 68.354
-
-        
     except Exception as e:
         traceback.print_exc()
 
